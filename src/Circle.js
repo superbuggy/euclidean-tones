@@ -33,7 +33,7 @@ export default class Circle extends Component {
 
     return (
       <svg
-        viewBox="-1 -1 2 2"
+        viewBox="-1.5 -1.5 3 3"
         style={svgStyle}
         height={SVG_SIZE}
         width={SVG_SIZE}
