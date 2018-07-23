@@ -27,13 +27,13 @@ const ToneSlice = props => {
     stroke: 'black',
   }
 
-  const textX = coordinatesFromPercentage(props.percentage / 2 + turnOffset).x
-  const textY = coordinatesFromPercentage(props.percentage / 2 + turnOffset).y
+  const textX = coordinatesFromPercentage(props.percentage / 2 + turnOffset).x * 0.8
+  const textY = coordinatesFromPercentage(props.percentage / 2 + turnOffset).y * 0.8
 
   return (
     <g>
       <path d={pathData} fill={'#DDD'} style={sliceStyle} />
-      <text style={{fontSize: '.1px'}} x={textX} y={textY} fill='black'>
+      <text style={{fontSize: '.1px'}} dx={'-.5em'} dy={'.5em'} x={textX} y={textY} fill='black'>
         {props.tone}
       </text>
     </g>

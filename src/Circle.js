@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 import ToneSlice from './ToneSlice'
+import { CIRCLE_OF_FIFTHS } from './constants'
 
 export default class Circle extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      tones: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+      tones: CIRCLE_OF_FIFTHS
     }
   }
 
   render () {
     const SVG_SIZE = 400
+    const VIEWBOX_ORIGIN = -1.1
+    const VIEWBOX_SIZE = Math.abs(VIEWBOX_ORIGIN) * 2
     const marginVertical = (window.innerHeight - SVG_SIZE) / 2
     const marginHorizontal = (window.innerWidth - SVG_SIZE) / 2
     console.log(window.innerHeight, window.innerWidth)
     const svgStyle = {
-      // transform: 'rotate(-0.25turn)',
       margin: `${marginVertical}px ${marginHorizontal}px`
     }
 
@@ -33,7 +35,7 @@ export default class Circle extends Component {
 
     return (
       <svg
-        viewBox="-1.5 -1.5 3 3"
+        viewBox={`${VIEWBOX_ORIGIN} ${VIEWBOX_ORIGIN} ${VIEWBOX_SIZE} ${VIEWBOX_SIZE}`}
         style={svgStyle}
         height={SVG_SIZE}
         width={SVG_SIZE}
