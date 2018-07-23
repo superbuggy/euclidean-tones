@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import ToneSlice from './ToneSlice'
-import { CIRCLE_OF_FIFTHS } from './constants'
+// import { CIRCLE_OF_FIFTHS } from './constants'
+import { TONES } from './constants'
 
 export default class Circle extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      tones: CIRCLE_OF_FIFTHS
+      tones: TONES
     }
   }
 
@@ -41,6 +42,7 @@ export default class Circle extends Component {
         width={SVG_SIZE}
       >
         { toneSlices }
+        <circle cx={0} cy={0} r={0.6} fill={'white'}/>
       </svg>
     )
   }
