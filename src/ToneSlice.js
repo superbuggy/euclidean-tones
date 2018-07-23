@@ -2,8 +2,9 @@ import React from 'react'
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
-    const x = Math.cos(2 * Math.PI * percentage)
-    const y = Math.sin(2 * Math.PI * percentage)
+    const offsetPercentage = percentage - .25
+    const x = Math.cos(2 * Math.PI * offsetPercentage)
+    const y = Math.sin(2 * Math.PI * offsetPercentage)
     return { x, y }
   }
 
@@ -32,7 +33,7 @@ const ToneSlice = props => {
   return (
     <g>
       <path d={pathData} fill={'#DDD'} style={sliceStyle} />
-      <text style={{fontSize: '.1px'}} rotate={90} x={textX} y={textY} fill='black'>
+      <text style={{fontSize: '.1px'}} x={textX} y={textY} fill='black'>
         {props.tone}
       </text>
     </g>

@@ -15,7 +15,7 @@ export default class Circle extends Component {
     const marginHorizontal = (window.innerWidth - SVG_SIZE) / 2
     console.log(window.innerHeight, window.innerWidth)
     const svgStyle = {
-      transform: 'rotate(-0.25turn)',
+      // transform: 'rotate(-0.25turn)',
       margin: `${marginVertical}px ${marginHorizontal}px`
     }
 
