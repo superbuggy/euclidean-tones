@@ -2,10 +2,11 @@ import React from 'react'
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
-    const offsetPercentage = percentage - .25
-    const x = Math.cos(2 * Math.PI * offsetPercentage)
-    const y = Math.sin(2 * Math.PI * offsetPercentage)
-    return { x, y }
+    const offsetPercentage = percentage - .25 // Circle need to be rotated -90 degrees
+    return {
+      x: Math.cos(2 * Math.PI * offsetPercentage),
+      y: Math.sin(2 * Math.PI * offsetPercentage)
+    }
   }
 
   const turnOffset = props.order * props.percentage

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Circle from './Circle'
 import './App.css'
+import TonesContainer from './TonesContainer'
 
 class App extends Component {
   render () {
     return (
-      <Circle />
+      <TonesContainer />
     )
   }
 }
