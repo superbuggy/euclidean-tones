@@ -26,9 +26,8 @@ export default class Circle extends Component {
           percentage={slicePercentage}
           order={index}
           key={index}
-        >
-          {tone}
-        </ToneSlice>
+          tone={tone}
+        />
       )
     })
 

@@ -2,15 +2,16 @@ import React from 'react'
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
-    const x = parseFloat((Math.cos(2 * Math.PI * percentage).toFixed(2)))
-    const y = parseFloat((Math.sin(2 * Math.PI * percentage).toFixed(2)))
-    return [x, y]
+    const x = Math.cos(2 * Math.PI * percentage)
+    const y = Math.sin(2 * Math.PI * percentage)
+    return { x, y }
   }
 
-  const startX = coordinatesFromPercentage(0)[0]
-  const startY = coordinatesFromPercentage(0)[1]
-  const endX = coordinatesFromPercentage(props.percentage)[0]
-  const endY = coordinatesFromPercentage(props.percentage)[1]
+  const turnOffset = props.order * props.percentage
+  const startX = coordinatesFromPercentage(turnOffset).x
+  const startY = coordinatesFromPercentage(turnOffset).y
+  const endX = coordinatesFromPercentage(props.percentage + turnOffset).x
+  const endY = coordinatesFromPercentage(props.percentage + turnOffset).y
 
   const largeArcFlag = props.percentage > 0.5 ? 1 : 0
 
@@ -20,14 +21,18 @@ const ToneSlice = props => {
     `L 0 0`,
   ].join(' ')
 
-  const turnOffset = props.order * props.percentage
   const sliceStyle = {
-    transform: `rotate(${turnOffset}turn)`,
     strokeWidth: '.001',
     stroke: 'black'
   }
+
   return (
-    <path d={pathData} fill={'#DDD'} style={sliceStyle} />
+    <g>
+      <path d={pathData} fill={'#DDD'} style={sliceStyle} />
+      <text style={{fontSize: '.001px'}} x={0} y={0} fill='black'>
+        {props.tone}
+      </text>
+    </g>
   )
 }
 
