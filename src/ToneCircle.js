@@ -4,7 +4,7 @@ import { pitchSets, CIRCLE_OF_FIFTHS } from './constants'
 import { activeTonesAndInfoColor } from './styleConstants'
 
 export const ToneCircle = ({activeTones, activeCount, tones}) => {
-  const SVG_SIZE = window.innerHeight * .6
+  const SVG_SIZE = window.innerHeight * .7
   const VIEWBOX_ORIGIN = -1.1
   const VIEWBOX_SIZE = Math.abs(VIEWBOX_ORIGIN) * 2
 

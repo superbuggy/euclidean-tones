@@ -6,9 +6,12 @@ export const Controls = ({ handleChange,
   offset
 }) => {
 
-
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      width: '100vw'
+    }}>
       <label>
         <p style={{textAlign: 'center'}}>
           {`${activeCount} ${activeCount === 1 ? 'Tone' : 'Tones'}`}
@@ -28,7 +31,7 @@ export const Controls = ({ handleChange,
       </label>
       <label>
         <p style={{textAlign: 'center'}}>
-          {`Offset by ${offset} ${offset === 1 ? 'step' : 'steps'}`}
+          {`Rotate by ${offset} ${offset === 1 ? 'step' : 'steps'}`}
         </p>
         <input
           type="range"
