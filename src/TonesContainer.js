@@ -39,6 +39,7 @@ export default class TonesContainer extends Component {
         <ToneCircle
           tones={this.state.tones}
           activeTones={this.state.activeTones}
+          activeCount={this.state.activeCount}
           root={this.state.root}
         />
         <Controls

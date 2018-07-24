@@ -6,21 +6,12 @@ export const Controls = ({ handleChange,
   offset
 }) => {
 
-  const pitchSets = {
-    2: 'Tritone',
-    3: 'Augmented Triad',
-    4: 'Diminished 7th',
-    5: 'Pentatonic Scale',
-    6: 'Whole Tone Scale',
-    7: 'Half Diminished Scale',
-    8: 'Diminished Scale'
-  }
-  const setInfo = pitchSets[activeCount] ? `(${pitchSets[activeCount]})` : ''
+
   return (
     <div>
       <label>
         <p style={{textAlign: 'center'}}>
-          {`${activeCount} ${activeCount === 1 ? 'Tone' : 'Tones'} ${setInfo}`}
+          {`${activeCount} ${activeCount === 1 ? 'Tone' : 'Tones'}`}
         </p>
         <input
           type="range"

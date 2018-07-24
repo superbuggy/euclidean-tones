@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fondamento');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+
 
 body {
   margin: 0;
@@ -8,12 +10,19 @@ body {
   font-size: 110%;
   color: #d3e510;
   background: #086800;
+  overflow-wrap: break-word;
 }
 
 path, text {
   transition: fill .3s;
 }
 
+h1 {
+  color: #e0eb6a;
+}
+
 label {
-  color: #f0ff49;
+  font-size: 110%;
+  letter-spacing: .05em;
+  color: #e0eb6a;
 }
