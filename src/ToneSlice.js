@@ -35,7 +35,7 @@ const ToneSlice = props => {
     <g>
       <path 
         d={pathData}
-        fill={props.isRoot && props.active ? '#F00' : props.active ? '#C00' : '#DDD'}
+        fill={props.active ? '#C00' : '#DDD'}
         style={sliceStyle}
       />
       <text style={{fontSize: '.1px'}} dx={'-.5em'} dy={'.5em'} x={textX} y={textY} fill='black'>

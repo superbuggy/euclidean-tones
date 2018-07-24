@@ -1,18 +1,23 @@
 import React from 'react'
 
-export const Controls = ({ handleChange, maxTones }) => {
+export const Controls = ({ handleChange,
+  maxTones,
+  activeCount,
+  offset
+}) => {
   return (
     <div>
       <label>
         <p style={{textAlign: 'center'}}>
-          Number Active
+          {activeCount} {activeCount === 1 ? 'Tone' : 'Tones'}
         </p>
         <input
           type="range"
           name="activeCount"
           min={0}
           max={maxTones}
-          onInput={handleChange}
+          value={activeCount}
+          onChange={handleChange}
           style={{
             display: 'block',
             margin: '0 auto'
@@ -21,14 +26,15 @@ export const Controls = ({ handleChange, maxTones }) => {
       </label>
       <label>
         <p style={{textAlign: 'center'}}>
-          Offset
+          {`${offset} ${offset === 1 ? 'step' : 'steps'}`}
         </p>
         <input
           type="range"
           name="offset"
           min={0}
           max={maxTones - 1}
-          onInput={handleChange}
+          value={offset}
+          onChange={handleChange}
           style={{
             display: 'block',
             margin: '0 auto'

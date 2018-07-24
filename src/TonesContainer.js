@@ -11,18 +11,15 @@ export default class TonesContainer extends Component {
       tones: TONES,
       activeTones: TONES,
       activeCount: TONES.length,
-      offset: 0,
-      root: TONES[0]
+      offset: 0
     }
   }
 
   filterTones = () => {
     this.setState(({tones, offset, activeCount}) => {
       const pattern = rotate(generatePattern(activeCount, tones.length), offset)
-      const activeTones = tones.filter((_, index) => pattern[index])
       return {
-        activeTones,
-        root: activeTones[offset % activeTones.length]
+        activeTones: tones.filter((_, index) => pattern[index])
       }
     })
   }
@@ -44,6 +41,8 @@ export default class TonesContainer extends Component {
           root={this.state.root}
         />
         <Controls
+          offset={this.state.offset}
+          activeCount={this.state.activeCount}
           handleChange={this.handleChange}
           maxTones={this.state.tones.length}
         />

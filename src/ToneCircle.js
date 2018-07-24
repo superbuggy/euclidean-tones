@@ -20,7 +20,6 @@ export const ToneCircle = props => {
       key={index}
       tone={tone}
       active={props.activeTones.includes(tone)}
-      isRoot={tone === props.root}
     />
   ))
 
