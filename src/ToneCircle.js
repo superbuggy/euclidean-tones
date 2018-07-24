@@ -1,7 +1,7 @@
 import React from 'react'
 import ToneSlice from './ToneSlice'
 // import { CIRCLE_OF_FIFTHS } from './constants'
-import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants'
+import { activeTonesAndInfoColor } from './styleConstants'
 
 export const ToneCircle = ({activeTones, activeCount, tones}) => {
   const SVG_SIZE = 400

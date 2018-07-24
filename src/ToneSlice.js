@@ -1,5 +1,5 @@
 import React from 'react'
-import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants';
+import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants'
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
