@@ -1,6 +1,7 @@
 import React from 'react'
 import ToneSlice from './ToneSlice'
 // import { CIRCLE_OF_FIFTHS } from './constants'
+import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants'
 
 export const ToneCircle = ({activeTones, activeCount, tones}) => {
   const SVG_SIZE = 400
@@ -46,7 +47,11 @@ export const ToneCircle = ({activeTones, activeCount, tones}) => {
         x={0}
         y={0}
         textAnchor={'middle'}
-        fill={'#e0eb6a'}
+        fill={activeTonesAndInfoColor}
+        strokeLinecap={'round'}
+        strokeWidth={0.001}
+        stroke={'#829345d0'}
+        paintOrder={'stroke'}
         style={{
           fontSize: '0.12px'
         }}>

@@ -1,6 +1,5 @@
 import React from 'react'
-
-
+import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants';
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
@@ -25,27 +24,32 @@ const ToneSlice = props => {
     `L 0 0`,
   ].join(' ')
 
-  const textX = coordinatesFromPercentage(props.percentage / 2 + turnOffset).x * 0.8
-  const textY = coordinatesFromPercentage(props.percentage / 2 + turnOffset).y * 0.8
+  const textX = coordinatesFromPercentage(props.percentage / 2 + turnOffset).x * 0.77
+  const textY = coordinatesFromPercentage(props.percentage / 2 + turnOffset).y * 0.77
 
   const sliceStyle = {
     strokeWidth: '.05',
-    stroke: '#086800',
+    stroke: '#086800'
   }
 
   const textStyle = {
     fontSize: '.15px',
-    fill: props.active ? '#086800' : '#d3e510'
+    fill: props.active ? activeTonesAndInfoColor : '#bad262AA',
+    stroke: props.active ? '#00000033' : 'transparent',
+    strokeLinecap: 'round',
+    strokeWidth: '0.01',
+    paintOrder: props.active ? 'stroke' : 'fill',
+    textAnchor: 'middle'
   }
 
   return (
     <g>
-      <path 
+      <path
         d={pathData}
-        fill={props.active ? '#d3e510' : 'transparent'}
+        fill={props.active ? activeTonesBGColor : 'transparent'}
         style={sliceStyle}
       />
-      <text style={textStyle} dx={'-.5em'} dy={'.5em'} x={textX} y={textY}>
+      <text style={textStyle} dx={'0em'} dy={'.5em'} x={textX} y={textY}>
         {props.tone}
       </text>
     </g>

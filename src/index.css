@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Fondamento');
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
+:root {
+  --main-font-color: #bad262d0;
+}
 
 body {
   margin: 0;
@@ -8,9 +11,9 @@ body {
   font-family: 'Fondamento', monospace;
   text-align: center;
   font-size: 110%;
-  color: #d3e510;
+  color: #89ae02;
+  color: var(--main-font-color);
   background: #086800;
-  overflow-wrap: break-word;
 }
 
 path, text {
@@ -18,11 +21,11 @@ path, text {
 }
 
 h1 {
-  color: #e0eb6a;
+  color: var(--main-font-color);
 }
 
 label {
   font-size: 110%;
   letter-spacing: .05em;
-  color: #e0eb6a;
+  color: #E5FFAF;
 }

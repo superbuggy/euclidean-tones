@@ -38,24 +38,26 @@ export function generatePattern (pulses, steps) { // renamed from the original
 
   counts.push(divisor)
 
-  let r = 0
-  const build = function (level) {
-    r += 1
-    if (level > -1) {
-      for (var i = 0; i < counts[level]; i++) {
-        build(level - 1)
+  const builder = () => {
+    let r = 0
+    return function build (level) {
+      r += 1
+      if (level > -1) {
+        for (var i = 0; i < counts[level]; i++) {
+          build(level - 1)
+        }
+        if (remainders[level] !== 0) {
+          build(level - 2)
+        }
+      } else if (level === -1) {
+        pattern.push(0)
+      } else if (level === -2) {
+        pattern.push(1)
       }
-      if (remainders[level] !== 0) {
-        build(level - 2)
-      }
-    } else if (level === -1) {
-      pattern.push(0)
-    } else if (level === -2) {
-      pattern.push(1)
     }
   }
 
-  build(level)
+  builder()(level)
   return pattern.reverse()
 }
 
