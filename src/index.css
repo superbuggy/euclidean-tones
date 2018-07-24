@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Fondamento');
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 :root {
   --main-font-color: #bad262d0;
@@ -11,7 +10,6 @@ body {
   font-family: 'Fondamento', monospace;
   text-align: center;
   font-size: 110%;
-  color: #89ae02;
   color: var(--main-font-color);
   background: #086800;
 }
