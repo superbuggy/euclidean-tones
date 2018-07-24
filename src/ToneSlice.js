@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
     const offsetPercentage = percentage - .25 // Circle need to be rotated -90 degrees
