@@ -6,11 +6,10 @@ export const ToneCircle = props => {
   const SVG_SIZE = 400
   const VIEWBOX_ORIGIN = -1.1
   const VIEWBOX_SIZE = Math.abs(VIEWBOX_ORIGIN) * 2
-  const marginVertical = (window.innerHeight - SVG_SIZE) / 2
   const marginHorizontal = (window.innerWidth - SVG_SIZE) / 2
 
   const svgStyle = {
-    margin: `${marginVertical}px ${marginHorizontal}px`
+    margin: `0 ${marginHorizontal}px`
   }
 
   const slicePercentage = (1 / props.tones.length) || 50
@@ -21,6 +20,7 @@ export const ToneCircle = props => {
         order={index}
         key={index}
         tone={tone}
+        active={props.activeTones.includes(tone)}
       />
     )
   })

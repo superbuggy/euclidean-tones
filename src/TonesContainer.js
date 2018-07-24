@@ -29,8 +29,14 @@ export default class TonesContainer extends Component {
   render () {
     return (
       <div>
-        <ToneCircle tones={this.state.tones} />
-        <Controls filterTones={this.filterTones} />
+        <ToneCircle
+          tones={this.state.tones}
+          activeTones={this.state.activeTones}
+        />
+        <Controls
+          filterTones={this.filterTones}
+          maxTones={this.state.tones.length}
+        />
       </div>
     )
   }
