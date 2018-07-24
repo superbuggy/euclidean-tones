@@ -27,7 +27,7 @@ export const Controls = ({ handleChange, maxTones }) => {
           type="range"
           name="offset"
           min={0}
-          max={maxTones}
+          max={maxTones - 1}
           onInput={handleChange}
           style={{
             display: 'block',

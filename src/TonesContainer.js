@@ -11,20 +11,20 @@ export default class TonesContainer extends Component {
       tones: TONES,
       activeTones: TONES,
       activeCount: TONES.length,
-      offset: 0
+      offset: 0,
+      root: TONES[0]
     }
   }
 
   filterTones = () => {
-    const pattern = rotate(
-      generatePattern(this.state.activeCount, this.state.tones.length),
-      this.state.offset
-    )
-    this.setState(prevState => ({
-      activeTones: prevState.tones.filter((_, index) => pattern[index])
-    }),
-      _ => {console.log(this.state.activeTones)}
-    )
+    this.setState(({tones, offset, activeCount}) => {
+      const pattern = rotate(generatePattern(activeCount, tones.length), offset)
+      const activeTones = tones.filter((_, index) => pattern[index])
+      return {
+        activeTones,
+        root: activeTones[offset % activeTones.length]
+      }
+    })
   }
 
   handleChange = event => {
@@ -41,6 +41,7 @@ export default class TonesContainer extends Component {
         <ToneCircle
           tones={this.state.tones}
           activeTones={this.state.activeTones}
+          root={this.state.root}
         />
         <Controls
           handleChange={this.handleChange}

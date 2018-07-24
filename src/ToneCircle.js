@@ -13,17 +13,16 @@ export const ToneCircle = props => {
   }
 
   const slicePercentage = (1 / props.tones.length) || 50
-  const toneSlices = props.tones.map((tone, index) => {
-    return (
-      <ToneSlice
-        percentage={slicePercentage}
-        order={index}
-        key={index}
-        tone={tone}
-        active={props.activeTones.includes(tone)}
-      />
-    )
-  })
+  const toneSlices = props.tones.map((tone, index) => (
+    <ToneSlice
+      percentage={slicePercentage}
+      order={index}
+      key={index}
+      tone={tone}
+      active={props.activeTones.includes(tone)}
+      isRoot={tone === props.root}
+    />
+  ))
 
   return (
     <svg
