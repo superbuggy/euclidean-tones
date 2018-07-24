@@ -33,7 +33,11 @@ const ToneSlice = props => {
 
   return (
     <g>
-      <path d={pathData} fill={'#DDD'} style={sliceStyle} />
+      <path 
+        d={pathData}
+        fill={'#DDD'}
+        style={sliceStyle}
+      />
       <text style={{fontSize: '.1px'}} dx={'-.5em'} dy={'.5em'} x={textX} y={textY} fill='black'>
         {props.tone}
       </text>
