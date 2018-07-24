@@ -9,21 +9,30 @@ export default class TonesContainer extends Component {
     super(props)
     this.state = {
       tones: TONES,
-      activeTones: []
+      activeTones: TONES,
+      activeCount: TONES.length,
+      offset: 0
     }
   }
 
-  filterTones = (event) => {
-    const activeCount = parseInt(event.target.value, 10)
-    const pattern = generatePattern(activeCount, this.state.tones.length)
-    this.setState(prevState => {
-      return {
-        activeTones: prevState.tones.filter((_, index) => pattern[index])
-      }
-    },
+  filterTones = () => {
+    const pattern = rotate(
+      generatePattern(this.state.activeCount, this.state.tones.length),
+      this.state.offset
+    )
+    this.setState(prevState => ({
+      activeTones: prevState.tones.filter((_, index) => pattern[index])
+    }),
       _ => {console.log(this.state.activeTones)}
     )
+  }
 
+  handleChange = event => {
+    event.persist()
+    this.setState(
+      _ => ({ [event.target.name]: parseInt(event.target.value, 10) }),
+      this.filterTones
+    )
   }
 
   render () {
@@ -34,7 +43,7 @@ export default class TonesContainer extends Component {
           activeTones={this.state.activeTones}
         />
         <Controls
-          filterTones={this.filterTones}
+          handleChange={this.handleChange}
           maxTones={this.state.tones.length}
         />
       </div>

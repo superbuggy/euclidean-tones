@@ -60,10 +60,12 @@ export function generatePattern (pulses, steps) { // renamed from the original
 }
 
 export function rotate (array, times) {
+  if (!array.length) return []
+  if (!times) return array
   let rotatedArray = array.slice()
   let count = 0
   while (count < times) {
-    rotatedArray.unshift(array.pop())
+    rotatedArray.unshift(rotatedArray.pop())
     count += 1
   }
   return rotatedArray
