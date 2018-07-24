@@ -29,7 +29,8 @@ export const ToneCircle = ({activeTones, activeCount, tones}) => {
     5: 'Pentatonic Scale',
     6: 'Whole Tone Scale',
     7: 'Half Diminished Scale',
-    8: 'Diminished Scale'
+    8: 'Diminished Scale',
+    12: 'Chromatic Scale'
   }
   const setInfo = pitchSets[activeCount] ? `${pitchSets[activeCount]}` : ''
   return (
