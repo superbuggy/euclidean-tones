@@ -28,8 +28,9 @@ const ToneSlice = props => {
   const textY = coordinatesFromPercentage(props.percentage / 2 + turnOffset).y * 0.77
 
   const sliceStyle = {
-    strokeWidth: '.05',
-    stroke: '#086800'
+    strokeWidth: '.001',
+    stroke: '#bad262',
+    fill: props.active ? activeTonesBGColor : 'transparent'
   }
 
   const textStyle = {
@@ -46,7 +47,7 @@ const ToneSlice = props => {
     <g>
       <path
         d={pathData}
-        fill={props.active ? activeTonesBGColor : 'transparent'}
+        // fill={props.active ? activeTonesBGColor : 'transparent'}
         style={sliceStyle}
       />
       <text style={textStyle} dx={'0em'} dy={'.5em'} x={textX} y={textY}>
