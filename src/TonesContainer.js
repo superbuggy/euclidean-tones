@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import Tone from 'tone'
+
 import { TONES } from './constants'
 import { ToneCircle } from './ToneCircle'
 import { Controls } from './Controls'
 import { generatePattern, rotate } from './utils'
+
 
 export default class TonesContainer extends Component {
   constructor (props) {
@@ -11,8 +14,15 @@ export default class TonesContainer extends Component {
       tones: TONES,
       activeTones: TONES,
       activeCount: TONES.length,
-      offset: 0
+      offset: 0,
+      // polySynth: new Tone.PolySynth(12, Tone.Synth).toMaster()
     }
+  }
+
+  play = () => {
+    var polySynth = new Tone.PolySynth(12, Tone.Synth).toMaster();
+    //play a chord
+    polySynth.triggerAttackRelease(this.state.activeTones, "2n");
   }
 
   filterTones = () => {
@@ -33,6 +43,10 @@ export default class TonesContainer extends Component {
   }
 
   render () {
+    // this.play()
+    //play a chord
+    // this.props.polySynth.triggerAttackRelease(this.state.activeTones, "2n");
+
     return (
       <div>
         <h1>Euclidean Tones</h1>
