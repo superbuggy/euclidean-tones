@@ -31,7 +31,7 @@ export const ToneCircle = props => {
       width={SVG_SIZE}
     >
       {toneSlices}
-      <circle cx={0} cy={0} r={0.6} fill={'white'} />
+      <circle cx={0} cy={0} r={0.6} fill={'#086800'} />
     </svg>
   )
 }

@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Fondamento');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Fondamento', monospace;
   text-align: center;
+  font-size: 110%;
+  color: #d3e510;
+  background: #086800;
 }
 
-path {
+path, text {
   transition: fill .3s;
+}
+
+label {
+  color: #f0ff49;
 }
