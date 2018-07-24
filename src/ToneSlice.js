@@ -3,7 +3,7 @@ import { activeTonesAndInfoColor, activeTonesBGColor } from './styleConstants'
 
 const ToneSlice = props => {
   const coordinatesFromPercentage = percentage => {
-    const offsetPercentage = percentage - .25 // Circle need to be rotated -90 degrees
+    const offsetPercentage = percentage - 7/24 // Circle need to be rotated -90 degrees
     return {
       x: Math.cos(2 * Math.PI * offsetPercentage),
       y: Math.sin(2 * Math.PI * offsetPercentage)

@@ -20,10 +20,19 @@ path, text {
 
 h1 {
   color: var(--main-font-color);
+  max-height: 20vh;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+svg, label, input {
+  margin: 0;
+  padding: 0;
 }
 
 label {
-  font-size: 110%;
+  max-height: 10vh;
+  /* font-size: 100%; */
   letter-spacing: .05em;
   color: #E5FFAF;
 }
