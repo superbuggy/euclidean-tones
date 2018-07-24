@@ -1,3 +1,5 @@
+# https://www.netlify.com/docs/netlify-toml-reference/
+
 [Settings]
 ID = "67b7e37c-315d-4172-a924-73a5145e596f"
 
@@ -7,3 +9,5 @@ ID = "67b7e37c-315d-4172-a924-73a5145e596f"
   # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
   # This is the directory that you are publishing from (relative to root of your repo)
   publish = "./build"
+  # This will be your default build command
+  command = "npm run build"
