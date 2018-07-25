@@ -31,7 +31,7 @@ export const Controls = ({ handleChange,
       </label>
       <label>
         <p style={{textAlign: 'center'}}>
-          {`Rotate by ${offset} ${offset === 1 ? 'step' : 'steps'}`}
+          {`Rotated by ${offset} ${offset === 1 ? 'step' : 'steps'}`}
         </p>
         <input
           type="range"
