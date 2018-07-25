@@ -6,7 +6,7 @@ export const pitchSets = {
   4: 'Diminished 7th',
   5: 'Pentatonic Scale',
   6: 'Whole Tone Scale',
-  7: 'Half Diminished Scale',
+  7: 'Major Scale',
   8: 'Diminished Scale',
   12: 'Chromatic Scale'
 }

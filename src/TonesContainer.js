@@ -15,16 +15,14 @@ export default class TonesContainer extends Component {
       activeTones: TONES,
       activeCount: TONES.length,
       offset: 0,
-      // polySynth: new Tone.PolySynth(12, Tone.Synth).toMaster()
     }
   }
 
   play = () => {
-    var polySynth = new Tone.PolySynth(12, Tone.Synth).toMaster();
-    //play a chord
-    polySynth.triggerAttackRelease(this.state.activeTones, "2n");
+    const tones = this.state.activeTones.map(tone => `${tone}4`)
+    this.props.polySynth.triggerAttackRelease(tones, "2n")
   }
-
+  
   filterTones = () => {
     this.setState(({tones, offset, activeCount}) => {
       const pattern = rotate(generatePattern(activeCount, tones.length), offset)
@@ -43,9 +41,6 @@ export default class TonesContainer extends Component {
   }
 
   render () {
-    // this.play()
-    //play a chord
-    // this.props.polySynth.triggerAttackRelease(this.state.activeTones, "2n");
 
     return (
       <div>
@@ -54,7 +49,7 @@ export default class TonesContainer extends Component {
           tones={this.state.tones}
           activeTones={this.state.activeTones}
           activeCount={this.state.activeCount}
-          root={this.state.root}
+          play={this.play}
         />
         <Controls
           offset={this.state.offset}
