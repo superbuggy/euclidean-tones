@@ -54,10 +54,8 @@ export const ToneCircle = ({activeTones, activeCount, tones, play}) => {
       <polygon
         onClick={play}
         points={'-0.05, 0.2  -0.05, 0.4  0.10, 0.3'}
-        stroke={'#bad262'}
         fill={activeTonesAndInfoColor}
-        strokeWidth={'0.01'}
-        />
+      />
     </svg>
   )
 }
