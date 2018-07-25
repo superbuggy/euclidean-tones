@@ -15,12 +15,34 @@ export default class TonesContainer extends Component {
       activeTones: TONES,
       activeCount: TONES.length,
       offset: 2,
+      playing: false
     }
+    this.transport = Tone.Transport
+    this.pattern = null
   }
 
   play = () => {
-    const tones = this.state.activeTones.map(tone => `${tone}4`)
-    this.props.polySynth.triggerAttackRelease(tones, "2n")
+    this.setState(prevState => {
+      if (this.pattern) this.pattern.dispose()
+      const tones = prevState.activeTones.map(tone => `${tone}4`)
+      this.pattern = new Tone.Pattern((time, note) => {
+        this.props.polySynth.triggerAttackRelease(note, '2n')
+      }, tones)
+      this.pattern.start(0)
+      this.transport.start()
+      return {
+        playing: true
+      }
+    })
+  }
+
+  stop = () => {
+    this.setState(prevState=>{
+      this.transport.stop()
+      return {
+        playing: false
+      }
+    })
   }
   
   filterTones = () => {
@@ -49,7 +71,9 @@ export default class TonesContainer extends Component {
           tones={this.state.tones}
           activeTones={this.state.activeTones}
           activeCount={this.state.activeCount}
+          playing={this.state.playing}
           play={this.play}
+          stop={this.stop}
         />
         <Controls
           offset={this.state.offset}

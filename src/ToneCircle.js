@@ -3,7 +3,14 @@ import ToneSlice from './ToneSlice'
 import { pitchSets, CIRCLE_OF_FIFTHS } from './constants'
 import { activeTonesAndInfoColor } from './styleConstants'
 
-export const ToneCircle = ({activeTones, activeCount, tones, play}) => {
+export const ToneCircle = ({
+  activeTones,
+  activeCount,
+  tones,
+  playing,
+  play,
+  stop
+}) => {
   const SVG_SIZE = window.innerHeight * .7
   const VIEWBOX_ORIGIN = -1.1
   const VIEWBOX_SIZE = Math.abs(VIEWBOX_ORIGIN) * 2
@@ -52,8 +59,8 @@ export const ToneCircle = ({activeTones, activeCount, tones, play}) => {
         {pitchSets[activeCount] ? `${pitchSets[activeCount]}` : ''}
       </text>
       <polygon
-        onClick={play}
-        points={'-0.05, 0.2  -0.05, 0.4  0.10, 0.3'}
+        onClick={playing ? stop : play}
+        points={playing ? '-0.08, 0.20, -0.08, 0.36, 0.08, 0.36, 0.08, 0.20' : '-0.05, 0.2  -0.05, 0.4  0.10, 0.3'}
         fill={activeTonesAndInfoColor}
       />
     </svg>
