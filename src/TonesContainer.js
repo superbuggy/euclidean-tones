@@ -14,7 +14,7 @@ export default class TonesContainer extends Component {
       tones: TONES,
       activeTones: TONES,
       activeCount: TONES.length,
-      offset: 0,
+      offset: 2,
     }
   }
 
